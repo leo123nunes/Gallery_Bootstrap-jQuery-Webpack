@@ -1,6 +1,8 @@
 import $ from 'jquery'
 
-const fadeTime = 100
+import {loadHtmlCallbacks} from "../core/includes.js"
+
+const fadeTime = 300
 
 function nameSelector(city) {
     $('[cityName]').each((i, e) => {
@@ -27,7 +29,6 @@ $.fn.cityButtons = function () {
     var btns = Array.from(citiesNames).map(city => {
         var newButton = $('<button>').addClass(['btn', 'btn-info']).html(city)
         newButton.on('click', () => nameSelector(city))
-        // newButton.on('click', () => console.log('clicked'))
         return newButton
     })
 
@@ -44,4 +45,7 @@ $.fn.cityButtons = function () {
     return this
 }
 
-$('[cityButtons]').cityButtons()
+loadHtmlCallbacks(function (){
+   $('[cityButtons]').cityButtons() 
+})
+

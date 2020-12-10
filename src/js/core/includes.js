@@ -1,5 +1,13 @@
 import $ from 'jquery'
 
+var htmlSucessCallbacks = []
+
+export function loadHtmlCallbacks(callback){
+    if(!htmlSucessCallbacks.includes(callback)){
+        htmlSucessCallbacks.push(callback)
+    }
+}
+
 function includeAll(parent){
 
     if(!parent){
@@ -13,6 +21,7 @@ function includeAll(parent){
             success(data){
                 $(e).html(data)
                 $(e).removeAttr('template')
+                htmlSucessCallbacks.forEach(callback => callback(data))
                 includeAll(e)
             }
         })
