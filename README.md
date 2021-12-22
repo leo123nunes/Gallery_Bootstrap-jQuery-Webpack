@@ -1,7 +1,7 @@
 # Photo gallery
 A photo gallery with buttons to filter by the name of the images. 
 
-## Languages
+## Code languages
 Javascript, HTML and CSS
 
 ## Frameworks and libraries
